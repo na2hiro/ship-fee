@@ -8,11 +8,13 @@
   <Calculator />
 </main>
 <footer>
-  <p>不正確なデータ、機能の要望などは作者まで↓</p>
+  <p>不正確なデータ、機能の要望などは<a href="https://twitter.com/na2hiro" target="_blank"
+      >@na2hiro</a
+  >まで</p>
   <p style="margin-bottom: 0">
     2022 &copy; <a href="https://twitter.com/na2hiro" target="_blank"
       >@na2hiro</a
-    >
+  >, <a href="https://twemoji.twitter.com/" target="_blank">twemoji</a>
   </p>
 </footer>
 
