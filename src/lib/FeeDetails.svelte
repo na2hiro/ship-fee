@@ -19,7 +19,7 @@
         size.distortableEnvelope[1]
       )}の封筒(必要に応じ<a href="https://konpouman.com/letterpack-hako/" target="_blank">直方体に変形</a>)`
     : null;
-  $: maxWeight = weight.max ? `重さ${stringifyWeight(weight.max)}` : null;
+  $: maxWeight = weight?.max ? `重さ${stringifyWeight(weight.max)}` : null;
 
   function stringifyXY(x, y) {
     if (x !== null) {
@@ -53,6 +53,6 @@
     <li>{maxWeight}まで</li>
   {/if}
   {#if minXY || minZ}
-    <li>梱包時最低でも{[minXY,minZ].filter(a=>a).join("、")}必要</li>
+    <li>梱包時最低でも{[minXY, minZ].filter((a) => a).join("、")}必要</li>
   {/if}
 </ul>

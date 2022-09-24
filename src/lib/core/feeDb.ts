@@ -309,10 +309,53 @@ const regularPost: FeeCategory = {
         weight: { max: 1000 },
       },
     },
+    {
+      name: "クリックポスト",
+      detailsUrl: "https://clickpost.jp/",
+      price: 185,
+      constraints: {
+        size: {
+          edgesMax: [34, 25, 3],
+          edgesMin: [14, 9, null],
+        },
+        weight: {
+          max: 1000,
+        },
+      },
+    },
   ],
 };
 
-const feeCategories = [yuuYuuMercari, rakuRakuMercari, regularPost];
+const tanomeruBin: FeeCategory = {
+  name: "たのメル便",
+  fees: [
+    [80, 1700],
+    [120, 2400],
+    [160, 3400],
+    [200, 5000],
+    [250, 8600],
+    [300, 12000],
+    [350, 18500],
+    [400, 25400],
+    [450, 33000],
+  ].map(([size, price]) => ({
+    name: `たのメル便(${size}サイズ)`,
+    detailsUrl: "https://static.jp.mercari.com/tanomeru",
+    price,
+    constraints: {
+      size: {
+        edgesSumMax: size,
+      },
+    },
+  })),
+};
+
+const feeCategories = [
+  yuuYuuMercari,
+  rakuRakuMercari,
+  regularPost,
+  tanomeruBin,
+];
 export default feeCategories;
 
 export const fees = feeCategories
