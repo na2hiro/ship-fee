@@ -1,25 +1,25 @@
 <script lang="ts">
   import { stringifyWeight } from "./core/utils";
 
-  export let size;
-  export let weight;
+  export let size = undefined;
+  export let weight = undefined;
 
-  $: maxXY = size.edgesMax
-    ? stringifyXY(size.edgesMax[0], size.edgesMax[1])
+  $: maxXY = size?.edgesMax
+    ? stringifyXY(size!.edgesMax[0], size!.edgesMax[1])
     : null;
-  $: maxZ = size.edgesMax?.[2] ? `厚さ${size.edgesMax[2]}cm` : null;
-  $: minXY = size.edgesMin
-    ? stringifyXY(size.edgesMin[0], size.edgesMin[1])
+  $: maxZ = size?.edgesMax?.[2] ? `厚さ${size!.edgesMax[2]}cm` : null;
+  $: minXY = size?.edgesMin
+    ? stringifyXY(size!.edgesMin[0], size!.edgesMin[1])
     : null;
-  $: minZ = size.edgesMin?.[2] ? `厚さ${size.edgesMin[2]}cm` : null;
-  $: maxSum = size.edgesSumMax ? `三辺合計${size.edgesSumMax}cm` : null;
-  $: envelope = size.distortableEnvelope
+  $: minZ = size?.edgesMin?.[2] ? `厚さ${size!.edgesMin[2]}cm` : null;
+  $: maxSum = size?.edgesSumMax ? `三辺合計${size!.edgesSumMax}cm` : null;
+  $: envelope = size?.distortableEnvelope
     ? `${stringifyXY(
-        size.distortableEnvelope[0],
-        size.distortableEnvelope[1]
+        size!.distortableEnvelope[0],
+        size!.distortableEnvelope[1]
       )}の封筒(必要に応じ<a href="https://konpouman.com/letterpack-hako/" target="_blank">直方体に変形</a>)`
     : null;
-  $: maxWeight = weight?.max ? `重さ${stringifyWeight(weight.max)}` : null;
+  $: maxWeight = weight?.max ? `重さ${stringifyWeight(weight!.max)}` : null;
 
   function stringifyXY(x, y) {
     if (x !== null) {
