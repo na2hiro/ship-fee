@@ -54,7 +54,7 @@
     margin-bottom: 0.3rem;
   }
 
-  li:first-child summary {
+  li:first-child summary, li:first-child summary * {
     font-weight: bold;
   }
 </style>
