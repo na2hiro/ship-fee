@@ -17,7 +17,7 @@
     ? `${stringifyXY(
         size.distortableEnvelope[0],
         size.distortableEnvelope[1]
-      )}の封筒(直方体に変形)`
+      )}の封筒(必要に応じ<a href="https://konpouman.com/letterpack-hako/" target="_blank">直方体に変形</a>)`
     : null;
   $: maxWeight = weight.max ? `重さ${stringifyWeight(weight.max)}` : null;
 
@@ -41,7 +41,7 @@
     <li>{maxXY}まで</li>
   {/if}
   {#if envelope}
-    <li>{envelope}</li>
+    <li>{@html envelope}</li>
   {/if}
   {#if maxZ}
     <li>{maxZ}まで</li>
