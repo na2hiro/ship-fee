@@ -33,7 +33,7 @@
           <FeeDetails {...fee.constraints} />
         </details>
       </li>
-    {:else}{/each}
+    {/each}
   </ul>
 {:else}
   <div style="margin: 2rem">発送方法が見つかりません</div>
