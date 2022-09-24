@@ -13,6 +13,12 @@
     : null;
   $: minZ = size.edgesMin?.[2] ? `厚さ${size.edgesMin[2]}cm` : null;
   $: maxSum = size.edgesSumMax ? `三辺合計${size.edgesSumMax}cm` : null;
+  $: envelope = size.distortableEnvelope
+    ? `${stringifyXY(
+        size.distortableEnvelope[0],
+        size.distortableEnvelope[1]
+      )}の封筒(直方体に変形)`
+    : null;
   $: maxWeight = weight.max ? `重さ${stringifyWeight(weight.max)}` : null;
 
   function stringifyXY(x, y) {
@@ -34,6 +40,9 @@
   {#if maxXY}
     <li>{maxXY}まで</li>
   {/if}
+  {#if envelope}
+    <li>{envelope}</li>
+  {/if}
   {#if maxZ}
     <li>{maxZ}まで</li>
   {/if}
@@ -42,5 +51,8 @@
   {/if}
   {#if maxWeight}
     <li>{maxWeight}まで</li>
+  {/if}
+  {#if minXY || minZ}
+    <li>梱包時最低でも{[minXY,minZ].filter(a=>a).join("、")}必要</li>
   {/if}
 </ul>

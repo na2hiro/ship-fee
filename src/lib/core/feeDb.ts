@@ -271,7 +271,6 @@ const regularPost: FeeCategory = {
             size: {
               edgesMax: [60, null, null],
               edgesSumMax: 90,
-              edgesMin: [34, 25, null],
             },
             weight: { max: gram },
           },
@@ -294,7 +293,7 @@ const regularPost: FeeCategory = {
       price: 520,
       constraints: {
         size: {
-          edgesMax: [34, 24.8, null],
+          distortableEnvelope: [34, 24.8],
         },
         weight: { max: 4000 },
       },

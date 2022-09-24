@@ -3,9 +3,27 @@ import type { FeeDefinition } from "./feeDb";
 
 export type Size = number | null;
 export type SizeConstraints = {
+  /**
+   * 辺の大きさの最大、最大辺から順に指定（３つめは厚さ）
+   * nullは無制限
+   */
   edgesMax?: [Size, Size, Size];
+
+  /**
+   * 直方体に変形できる封筒
+   */
+  distortableEnvelope?: [number, number];
+
+  /**
+   * 辺の大きさの最小、最大辺から順に指定（３つめは厚さ）
+   * nullは無制限
+   */
   edgesMin?: [Size, Size, Size];
-  edgesSumMax?: Size;
+
+  /**
+   * ３辺合計の最大。
+   */
+  edgesSumMax?: number;
 };
 export type WeightConstraints = {
   max: number;
@@ -25,13 +43,11 @@ export function meetSizeConstraints(
     if (z !== null && z < Z) return false;
   }
 
-  // TODO: show caveat to make edges longer
-  /*if (constraints.edgesMin) {
-      const [x, y, z] = constraints.edgesMin;
-      if (x !== null && X < x) return false;
-      if (y !== null && Y < y) return false;
-      if (z !== null && Z < z) return false;
-    }*/
+  if (constraints.distortableEnvelope) {
+    const [x, y] = constraints.distortableEnvelope;
+    if (x - Z < X) return false;
+    if (y - Z < Y) return false;
+  }
 
   if (constraints.edgesSumMax && constraints.edgesSumMax < X + Y + Z)
     return false;
