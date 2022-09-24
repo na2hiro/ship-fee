@@ -1,0 +1,4 @@
+{
+  "pluginSearchDirs": ["."],
+  "plugins": ["prettier-plugin-svelte"]
+}
