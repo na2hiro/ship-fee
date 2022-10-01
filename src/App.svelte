@@ -8,7 +8,6 @@
     <wbr />
     メルカリ送料
   </h1>
-
   <Calculator />
 </main>
 <footer>

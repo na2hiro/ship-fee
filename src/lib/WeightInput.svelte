@@ -18,6 +18,7 @@
   div {
     display: inline-flex;
     align-items: center;
+    margin-bottom: 0.125rem
   }
 
   input {
