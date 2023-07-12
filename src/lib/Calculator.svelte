@@ -13,6 +13,8 @@
   let size3: number;
   let weight: number;
 
+  const numberFormat = new Intl.NumberFormat();
+
   itemsStore.subscribe((items) => {
     const item = items.items[items.selectedIndex] ?? {};
     size1 = item.size1;
@@ -51,7 +53,7 @@
       <li>
         <details>
           <summary
-            >{fee.price}円{i === 0 ? "（最安）" : ""}
+            >{numberFormat.format(fee.price)}円{i === 0 ? "（最安）" : ""}
             <a href={fee.detailsUrl} target="_blank">{fee.name}</a>
           </summary>
           <FeeDetails {...fee.constraints} />
